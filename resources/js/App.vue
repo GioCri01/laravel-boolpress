@@ -1,25 +1,26 @@
 <template>
   <div >
-    <div class="container">
+    <HeaderComp/>
+            <div class="container">
 
-        <ul>
-            <li
-            class="pt-5"
-            v-for="post in posts"
-            :key="post.id"
-            >
-                <h3> Titolo: {{ post.title }}</h3>
-                <p> Contenuto :{{ post.content }}</p>
-                <h4> Categoria :{{ post.category.name }}</h4>
-                <h5 v-if="post.tags.length === 0">nessun tag</h5>
-                <h5 v-else-if="post.tags.length > 0">{{ post.tags.name }}</h5>
+                <ul>
+                    <li
+                    class="pt-5"
+                    v-for="post in posts"
+                    :key="post.id"
+                    >
+                        <h3> Titolo: {{ post.title }}</h3>
+                        <p> Contenuto :{{ post.content }}</p>
+                        <h4> Categoria :{{ post.category.name }}</h4>
+                        <h5 v-if="post.tags.length === 0">nessun tag</h5>
+                        <h5 v-else-if="post.tags.length > 0">{{ post.tags.name }}</h5>
 
 
-            </li>
-        </ul>
+                    </li>
+                </ul>
 
-    </div>
-
+            </div>
+    <FooterComp/>
 
 
   </div>
@@ -27,8 +28,11 @@
 
 <script>
 import Axios from 'axios';
+import HeaderComp from './components/partials/HeaderComp.vue';
+import FooterComp from './components/partials/FooterComp.vue';
 
 export default {
+  components: { HeaderComp, FooterComp },
     name: "App",
 
     data(){
